@@ -1,0 +1,19 @@
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js" )}
+
+var t1= new sforce.SObject("Task");
+t1.OwnerId = "{!$User.Id}";
+t1.Subject = "ACTION - Facebook Post Queued for Creation";
+t1.Status = "Completed";
+t1.Priority = "Low";
+t1.WhatId = "{!Property__c.Id}";
+t1.Property_City__c = "{!Property__c.City__c}";
+t1.Property_Preferred_Contact__c = "{!Property__c.DS_First_Name__c} {!Property__c.DS_Last_Name__c}";
+
+
+result = sforce.connection.create([t1]);
+
+if (result[0].success=='false') { 
+alert(result[0].errors.message); 
+} else { 
+location.reload(true); 
+}
