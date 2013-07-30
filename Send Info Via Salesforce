@@ -1,0 +1,1 @@
+location.replace('/email/author/emailauthor.jsp?retURL=/{!Property__c.Id}&p3_lkid={!Property__c.Id}&rtype=003&p2_lkid=&template_id=00Xi0000000Yu6a&p5=&p24=person1@test.com, person2@test.com');
