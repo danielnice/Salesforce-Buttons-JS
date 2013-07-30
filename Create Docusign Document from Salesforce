@@ -1,0 +1,42 @@
+//If Statement to Select the correct template based on field within object
+if ({!ISPICKVAL(Property__c.State__c, "CA")}) {
+var state = '27A4FD93-3E56-4D8E-82C3-DC3B76DFF947';
+} else {
+var state = '3D5358EE-C99D-4B7E-979D-FDB060087859';
+}
+
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+var property = new sforce.SObject("Property__c");
+property.Id='{!Property__c.Id}';
+property.ACTION__c = "Contract Sent";
+var result=sforce.connection.update([property]);
+
+{!REQUIRESCRIPT("/apex/dsfs__DocuSign_JavaScript")}
+//********* Option Declarations (Do not modify )*********//
+var RC = '';var RSL='';var RSRO='';var RROS='';var CCRM='';var CCTM='';var CCNM='';var CRCL=''; var CRL='';var OCO='';var DST='';var LA='';var CEM='';var CES='';var STB='';var SSB='';var SES='';var SEM='';var SRS='';var SCS ='';var RES='';
+//*************************************************//
+
+//Required Fields
+DSEID = '';
+SourceID = '{!Property__c.Id}';
+
+//Display Settings
+STB = '1';  //Tag Button
+SSB = '0';  //Send Button
+SES = '1'; //Show Email Subject
+SEM = '1'; //Show Email Message
+
+//Email Settings
+CES = 'Home Staging Agreement by White Orchid Interiors';  //Email Subject
+CEM = 'You will find a link below to your home staging agreement from White Orchid Interiors. Please review and sign the DocuSign attachment at your earliest convenience. If you have any questions please contact me by phone at 303-819-9791 or by email at lauren@whiteorchidinteriors.com.\\n\\nThanks and take care,\\nLauren';  //Email Message
+
+//Button Options
+OCO = 'Tag'; //One Click Options - Send to "Tag" or to "Send"
+DST = state; //Docusign Template ID
+
+//Recipients
+CRL = 'Email~lauren@whiteorchidinteriors.com;FirstName~Lauren;LastName~Matthews;Role~WhiteOrchid,Email~{!Property__c.DS_Email__c};FirstName~{!Property__c.DS_First_Name__c};LastName~{!Property__c.DS_Last_Name__c};Role~Customer,Email~lauren@whiteorchidinteriors.com;FirstName~Lauren;LastName~Matthews;Role~CC';
+CCRM='WhiteOrchid~WhiteOrchid;Customer~Customer;CC~CC';
+
+//********* Page Callout (Do not modify) *********//
+window.location.href = "/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&SourceID={!Property__c.Id}&RC="+RC+"&RSL="+RSL+"&RSRO="+RSRO+"&RROS="+RROS+"&CCRM="+CCRM+"&CCTM="+CCTM+"&CRCL="+CRCL+"&CRL="+CRL+"&OCO="+OCO+"&DST="+DST+"&CCNM="+CCNM+"&LA="+LA+"&CEM="+CEM+"&CES="+CES+"&SRS="+SRS+"&STB="+STB+"&SSB="+SSB+"&SES="+SES+"&SEM="+SEM+"&SRS="+SRS+"&SCS="+SCS+"&RES="+RES;
