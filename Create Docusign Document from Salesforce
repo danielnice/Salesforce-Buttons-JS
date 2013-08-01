@@ -27,15 +27,15 @@ SES = '1'; //Show Email Subject
 SEM = '1'; //Show Email Message
 
 //Email Settings
-CES = 'Home Staging Agreement by White Orchid Interiors';  //Email Subject
-CEM = 'You will find a link below to your home staging agreement from White Orchid Interiors. Please review and sign the DocuSign attachment at your earliest convenience. If you have any questions please contact me by phone at 303-819-9791 or by email at lauren@whiteorchidinteriors.com.\\n\\nThanks and take care,\\nLauren';  //Email Message
+CES = 'This is my awesoem subject';  //Email Subject
+CEM = 'All of my great body content\\n\\nThanks,\\nDaniel';  //Email Message
 
 //Button Options
 OCO = 'Tag'; //One Click Options - Send to "Tag" or to "Send"
 DST = state; //Docusign Template ID
 
 //Recipients
-CRL = 'Email~lauren@whiteorchidinteriors.com;FirstName~Lauren;LastName~Matthews;Role~WhiteOrchid,Email~{!Property__c.DS_Email__c};FirstName~{!Property__c.DS_First_Name__c};LastName~{!Property__c.DS_Last_Name__c};Role~Customer,Email~lauren@whiteorchidinteriors.com;FirstName~Lauren;LastName~Matthews;Role~CC';
+CRL = 'Email~ldaniel@parachuteapplications.com;FirstName~Daniel;LastName~Nice;Role~Parachute,Email~{!Property__c.DS_Email__c};FirstName~{!Property__c.DS_First_Name__c};LastName~{!Property__c.DS_Last_Name__c};Role~Customer,Email~test@test.com;FirstName~Joey;LastName~Testington;Role~CC';
 CCRM='WhiteOrchid~WhiteOrchid;Customer~Customer;CC~CC';
 
 //********* Page Callout (Do not modify) *********//
